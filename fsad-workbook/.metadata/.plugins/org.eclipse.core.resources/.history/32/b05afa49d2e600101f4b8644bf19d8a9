@@ -1,0 +1,51 @@
+package com.klu.app;
+
+public class MainApp {
+	 public static void main(String[] args) {
+	        Session session = HibernateUtil.getSessionFactory().openSession();
+	        Transaction tx = session.beginTransaction();
+	        Scanner sc = new Scanner(System.in);
+
+	        // 1️⃣ Insert Products
+	        Product p1 = new Product("Laptop", "Gaming Laptop", 75000, 10);
+	        Product p2 = new Product("Phone", "Android Phone", 25000, 20);
+	        session.save(p1);
+	        session.save(p2);
+	        tx.commit();
+
+	        // 2️⃣ Retrieve by ID
+	        System.out.print("Enter Product ID to retrieve: ");
+	        int id = sc.nextInt();
+	        Product prod = session.get(Product.class, id);
+	        System.out.println("Product: " + prod);
+
+	        // 3️⃣ Update price/quantity
+	        tx = session.beginTransaction();
+	        System.out.print("Enter Product ID to update: ");
+	        int uid = sc.nextInt();
+	        Product updateProd = session.get(Product.class, uid);
+	        if(updateProd != null){
+	            System.out.print("New price: ");
+	            double newPrice = sc.nextDouble();
+	            updateProd.setPrice(newPrice);
+	            session.update(updateProd);
+	            tx.commit();
+	            System.out.println("Updated: " + updateProd);
+	        }
+
+	        // 4️⃣ Delete a product
+	        tx = session.beginTransaction();
+	        System.out.print("Enter Product ID to delete: ");
+	        int did = sc.nextInt();
+	        Product delProd = session.get(Product.class, did);
+	        if(delProd != null){
+	            session.delete(delProd);
+	            tx.commit();
+	            System.out.println("Deleted product with ID: " + did);
+	        }
+
+	        session.close();
+	        sc.close();
+	        System.out.println("CRUD operations completed!");
+	    }
+}
