@@ -1,0 +1,79 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+}
+
+/* Heading */
+h1 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  margin: 10px;
+  padding: 10px 18px;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #43cea2, #185a9d);
+}
+
+/* Dropdown */
+select {
+  padding: 8px;
+  margin: 15px;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+/* Card style for data */
+div {
+  margin: 10px;
+}
+
+/* Individual post/user cards */
+div > div {
+  background: white;
+  padding: 10px;
+  margin: 10px auto;
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Titles */
+h2 {
+  color: #ff416c;
+}
+
+h4 {
+  color: #0072ff;
+}
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(45deg, #ff512f, #dd2476);
+  padding: 15px 30px;
+  color: white;
+}
+
+.navbar h2 {
+  margin: 0;
+}
+
+/* Content area */
+.content {
+  margin-top: 20px;
+}
